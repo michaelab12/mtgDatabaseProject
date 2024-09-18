@@ -1,6 +1,6 @@
 
 var placeholder = "https://api.magicthegathering.io/v1";
-window.addEventListener('keydown', test2 ,false);
+//window.addEventListener('keydown', test2 ,false);
 async function testAPI(testPath){
     try{
         const response = await fetch("https://api.magicthegathering.io/v1/cards");
@@ -33,3 +33,14 @@ function test2(event){
         val.textContent = t;
     }
 }
+
+function test3(){
+    url = new URL("https://api.scryfall.com/cards/search")
+    url.searchParams.append("q", "testValue");
+    console.log(url.toString());
+    url2 = new URL(url.toString());
+    url2.searchParams.set("q", "different value");
+    console.log(url2.toString());
+}
+
+test3();

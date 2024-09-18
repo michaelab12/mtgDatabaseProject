@@ -1,5 +1,5 @@
 window.addEventListener('keydown', keyboardListener ,false);
-
+const href = window.location.href;
 
 //listener used to listen for search
 //activates either when the search button is pressed or
@@ -12,7 +12,9 @@ function keyboardListener(event){
     console.log(active);
     if(key == "Enter" && active == "searchBox"){
         let query = document.getElementById('searchBox').value;
-        searchResults(query)
+        let newPage = new URL(window.location.href);
+        newPage.searchParams.set('search', query);
+        window.location.href = newPage.toString();
     }
 }
 
@@ -21,7 +23,9 @@ function keyboardListener(event){
 //may change later
 function buttonListener(){
     let query = document.getElementById('searchBox').value;
-    searchResults(query);
+    let newPage = new URL(window.location.href);
+    newPage.searchParams.set('search', query);
+    window.location.href = newPage.toString();
 }
 
 //async function used to get card results
@@ -47,7 +51,6 @@ async function getCards(url){
 //splits the string into tokens and appends
 //then to url object
 async function searchResults(query){
-    let json;
     url = new URL("https://api.scryfall.com/cards/search")
     url.searchParams.append("q", query);
     json = await getCards(url);
@@ -60,4 +63,12 @@ async function searchResults(query){
     }
 }
 
-
+function init(){
+    let homepage = new URL(window.location.href);
+    //used to determine if search query was given
+    //if not, load normally
+    //otherwise, contact scryfall api for search results
+    if(homepage.searchParams.has('search')){
+        searchResults(homepage.searchParams.get('search'));
+    }
+}

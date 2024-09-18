@@ -3,6 +3,10 @@
 
 <head>
     <script src="js/search.js"></script>
+    <script type="text/javascript">
+        // Call init once the webpage has loaded
+        window.onload = init;
+      </script>
 	<title>
 		Sudo Scryfall
 	</title>
@@ -12,7 +16,7 @@
     <h2>Created By Michael Vogt</h2>
     <input type="text" id="searchBox"></input>
     <input type="button" id="searchButton" value="Search" onclick="buttonListener()"></input>
-    <br><span id="result">PlaceHolder</span>
+    <br><span id="result"></span>
 	<br>For more info, click below
 </body>
 </html>
