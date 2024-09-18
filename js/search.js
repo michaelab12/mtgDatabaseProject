@@ -1,6 +1,4 @@
-//window.addEventListener('keydown', startSearch ,false);
-//api requests begin with this
-var t = "https://api.magicthegathering.io/v1/";
+window.addEventListener('keydown', keyboardListener ,false);
 
 
 //listener used to listen for search
@@ -9,10 +7,12 @@ var t = "https://api.magicthegathering.io/v1/";
 //activated api call function if valid
 function keyboardListener(event){
     key = event.key;
+    console.log(key);
     var active = document.activeElement.id;
-    if(key == "Enter" && active == "search"){
-        let query = document.getElementById('search').value;
-        getCards(query);
+    console.log(active);
+    if(key == "Enter" && active == "searchBox"){
+        let query = document.getElementById('searchBox').value;
+        searchResults(query)
     }
 }
 
@@ -20,8 +20,8 @@ function keyboardListener(event){
 //for now only used to call async api function
 //may change later
 function buttonListener(){
-    let query = document.getElementById('search').value;
-    getCards(query);
+    let query = document.getElementById('searchBox').value;
+    searchResults(query);
 }
 
 //async function used to get card results
@@ -30,12 +30,12 @@ function buttonListener(){
 //@param query: the search input by the user
 async function getCards(url){
     try{
-        const response = await fetch("https://api.magicthegathering.io/v1/cards" + "");
+        const response = await fetch(url.toString());
         if (!response.ok){
             throw new Error(`Response status: ${response.status}`);
           }
         const json = await response.json();
-        console.log(json);
+        return json;
     }
     catch(error){
         console.log("An Error Occured");
@@ -43,20 +43,21 @@ async function getCards(url){
     return null;
 }
 
-//helper function used to create out query
+//function used when user makes a search request
 //splits the string into tokens and appends
 //then to url object
-function urlHelper(query){
-    let arr = query.split(" ");
-    for(const ell of arr){
-        console.log(ell);
+async function searchResults(query){
+    let json;
+    url = new URL("https://api.scryfall.com/cards/search")
+    url.searchParams.append("q", query);
+    json = await getCards(url);
+    let result = document.getElementById('result');
+    if(json == null){
+        result.textContent = "No results found";
+    }
+    else{
+        result.textContent = query + " results: "+ json.total_cards;
     }
 }
 
-urlHelper("the test query");
-let j = "https://api.scryfall.com/cards/search?q=Alania+c:U";
-const e = encodeURI(j);
-console.log(e);
-const uri = 'https://mozilla.org/?x=шеллы';
-const encoded = encodeURI(uri);
-console.log(encoded);
+
