@@ -69,7 +69,8 @@ function displayResult(json){
     let data = json.data;
     let list = '<ul>';
     data.forEach(element => {
-        list += '<li>'+ element.name + '</li>';
+        list += '<li><a href="./html/card.html?id='+element.id +'">'+ element.name + '</a></li>';
+        console.log(list);
     });
     list += '</ul>';
     let result = document.getElementById('resultList');
