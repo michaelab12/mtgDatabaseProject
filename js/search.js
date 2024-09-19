@@ -7,9 +7,7 @@ const href = window.location.href;
 //activated api call function if valid
 function keyboardListener(event){
     key = event.key;
-    console.log(key);
     var active = document.activeElement.id;
-    console.log(active);
     if(key == "Enter" && active == "searchBox"){
         let query = document.getElementById('searchBox').value;
         let newPage = new URL(window.location.href);
@@ -60,7 +58,22 @@ async function searchResults(query){
     }
     else{
         result.textContent = query + " results: "+ json.total_cards;
+        displayResult(json);
     }
+}
+
+//function used to display the results
+//to the html page
+function displayResult(json){
+    console.log(json);
+    let data = json.data;
+    let list = '<ul>';
+    data.forEach(element => {
+        list += '<li>'+ element.name + '</li>';
+    });
+    list += '</ul>';
+    let result = document.getElementById('resultList');
+    result.innerHTML = list;
 }
 
 function init(){
