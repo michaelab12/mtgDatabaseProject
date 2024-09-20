@@ -77,6 +77,7 @@ function displayResult(json){
     result.innerHTML = list;
 }
 
+
 function init(){
     let homepage = new URL(window.location.href);
     //used to determine if search query was given

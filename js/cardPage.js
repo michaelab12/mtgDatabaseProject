@@ -21,6 +21,14 @@ async function getCards(id){
 function setValues(json){
     let cardName = document.getElementById('cardName');
     cardName.textContent = json.name;
+    let cardImage = document.getElementById('cardImage');
+    let image = '<img src="' + json.image_uris.normal + '"width="488" height ="680">';
+    cardImage.innerHTML = image;
+}
+
+//helper function 
+function addImage(){
+
 }
 
 //function call used when program loads
