@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../css/cardPage.css">
     <script src="../js/cardPage.js"></script>
     <script type="text/javascript">
         // Call init once the webpage has loaded
@@ -11,7 +12,25 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 id="cardName">placeHolder</h1>
-    <div id="cardImage"></div>
+    <div id="mainBody">
+        <h1 id="cardName">placeHolder</h1>
+        <div class ="image description">
+            <div class = "info" id="cardImage"></div>
+            <div class="info" id="textInfo">
+                <div class="textDesc" id="description">test description</div>
+                <div class="textDesc" id="powerToughness">test power</div>
+                <div class="textDesc" id="legality">test legality</div>
+            </div>
+        </div>
+        <div class ="misc">
+            <div class ="info">
+                <div class="textDesc" id="altPrintings">test alt prints</div>
+                <div class="textDesc" id="rulings">test rulings</div>
+            </div>
+            <div class="info">
+                <div class = "textDesc" id="buyLinks">test buy links</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

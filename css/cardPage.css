@@ -1,0 +1,49 @@
+
+ * {
+    outline: 2px solid red;
+  }
+
+  
+  body{
+    outline: 2px solid blue;
+  }
+
+    div{
+    outline: 2px solid green;
+  }
+
+
+  .image{
+    display: flex;
+    justify-content: left;
+    margin: 50px;
+    background-color: aqua;
+    padding: 0%;
+  }
+
+  .misc{
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+    background-color: coral;
+  }
+
+  .info{
+    margin: 50px;
+    background-color: red;
+    display: block;
+  }
+
+  .textDesc{
+    width: 300px;
+    height: auto;
+    margin-bottom: 50px;
+    padding: auto;
+    overflow-wrap: break-word;
+  }
+  #textInfo{
+    padding: 25px;
+  }
+
+  
+    
