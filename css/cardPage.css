@@ -38,5 +38,15 @@
     outline: 1px solid gray;
   }
 
-  
+  .rulingDate{
+    font-size: smaller;
+    margin-bottom: 15px;
+    color: gray;
+  }
+  #rulings{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 800px;
+    font-size: smaller;
+    display: inline-block;
+  }
     
