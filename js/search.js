@@ -57,10 +57,10 @@ async function searchResults(query, page){
     json = await getCards(url);
     let result = document.getElementById('result');
     if(json == null){
-        result.textContent = "No results found";
+        result.textContent = 'No results for: "' + query + '"';
     }
     else{
-        result.textContent = query + " results: "+ json.total_cards;
+        result.textContent = json.total_cards + ' results for "' + query + '"';
         displayResult(json);
     }
 }

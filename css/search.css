@@ -18,3 +18,8 @@
  #moreResults{
     display: flex;
  }
+
+ #result{
+    font-size: large;
+    padding-left: 20px;
+ }
