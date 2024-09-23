@@ -1,4 +1,4 @@
-Michael Vogt
+Michael Vogt  
 Sudo Scryfall project
 https://michaelab12.github.io.
 Personal project used to gain experience with webdevopment and api calls
